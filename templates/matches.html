@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/matches.css">
+    <title>Liste des Matches</title>
+</head>
+
+<body>
+    <h1>Matches</h1>
+    <ul class="matches-list-container">
+        {% for match in matches %}
+        {% if match%}
+        <li class="match">
+            <h3>Match Infos :</h3>
+            <ul class="match-infos-container">
+                {% for key, value in match.items() %}
+                <li class="match-info">{{key}} : {{value}}</li>
+                {% endfor %}
+            </ul>
+        </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+</body>
+
+</html>

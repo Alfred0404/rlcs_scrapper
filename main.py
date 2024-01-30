@@ -38,6 +38,25 @@ def search_match_infos(key, value, match_infos):
     return match_infos
 
 
+def search_event_infos(key, value, event_infos):
+    if key == "name":
+        event_infos["name"] = value
+    elif key == "region":
+        event_infos["region"] = value
+    elif key == "start_date":
+        event_infos["start_date"] = value
+    elif key == "end_date":
+        event_infos["end_date"] = value
+    elif key == "prize_pool":
+        event_infos["prize_pool"] = value
+    elif key == "teams":
+        event_infos["teams"] = value
+    elif key == "matches":
+        event_infos["matches"] = value
+
+    return event_infos
+
+
 def show_infos(infos, type="Match"):
     print(f"\n{type} infos :")
     for key, value in infos.items():
@@ -58,9 +77,21 @@ def get_events(region="", event_name="", after=""):
         print(f"Upcoming events after {date} :")
 
         for event in r_json["events"]:
-            show_infos(type="event", infos=event)
+            event_infos = {
+                "name": "TBD",
+                "region": "TBD",
+                "start_date": "TBD",
+                "end_date": "TBD",
+                "prize_pool": "TBD",
+                "teams": "TBD",
+                "matches": "TBD",
+            }
+            for key, value in event.items():
+                event_infos = search_event_infos(key, value, event_infos)
 
-        return r_json
+            show_infos(type="Event", infos=event_infos)
+
+        return r_json["events"]
     except Exception as e:
         print(f"Error :\n{e}")
 
@@ -79,6 +110,7 @@ def get_team_id(team_name):
 
 def get_matches(team="", region="", event="", after=""):
     try:
+        all_matches = []
         team_id = get_team_id(team)
 
         url = "https://zsr.octane.gg/matches?"
@@ -108,9 +140,11 @@ def get_matches(team="", region="", event="", after=""):
             for key, value in match.items():
                 match_infos = search_match_infos(key, value, match_infos)
 
+            all_matches.append(match_infos)
+
             show_infos(type="match", infos=match_infos)
 
-        return r_json
+        return all_matches
     except Exception as e:
         print(f"Error :\n{e}")
 

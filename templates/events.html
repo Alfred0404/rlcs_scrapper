@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/events.css">
+    <title>Liste des Events</title>
+</head>
+
+<body>
+    <h1>Events</h1>
+    <ul class="event-list-container">
+        {% for event in events %}
+        {% if event%}
+        <li class="event">
+            <h3>Event Infos :</h3>
+            <ul class="event-infos-container">
+                {% for key, value in event.items() %}
+                <li class="event-info">{{key}} : {{value}}</li>
+                {% endfor %}
+            </ul>
+        </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
