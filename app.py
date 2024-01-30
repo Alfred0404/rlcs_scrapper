@@ -16,9 +16,9 @@ def test():
 
 @app.route("/matches")
 def matches():
-    return render_template("matches.html", matches=get_matches())
+    return render_template("matches.html", matches=get_matches(after="2023-01-01"))
 
 
 @app.route("/events")
 def events():
-    return render_template("events.html", events=get_events())
+    return render_template("events.html", events=get_events(after="2023-01-01"))

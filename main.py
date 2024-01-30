@@ -43,16 +43,12 @@ def search_event_infos(key, value, event_infos):
         event_infos["name"] = value
     elif key == "region":
         event_infos["region"] = value
-    elif key == "start_date":
-        event_infos["start_date"] = value
-    elif key == "end_date":
-        event_infos["end_date"] = value
-    elif key == "prize_pool":
-        event_infos["prize_pool"] = value
-    elif key == "teams":
-        event_infos["teams"] = value
-    elif key == "matches":
-        event_infos["matches"] = value
+    elif key == "startDate":
+        event_infos["startDate"] = value
+    elif key == "endDate":
+        event_infos["endDate"] = value
+    elif key == "prize":
+        event_infos["prize"] = f'{value["amount"]} {value["currency"]}'
 
     return event_infos
 
@@ -65,6 +61,7 @@ def show_infos(infos, type="Match"):
 
 def get_events(region="", event_name="", after=""):
     try:
+        all_events = []
         url = "https://zsr.octane.gg/events?"
         if region != "":
             url += f"region={region}&"
@@ -80,18 +77,17 @@ def get_events(region="", event_name="", after=""):
             event_infos = {
                 "name": "TBD",
                 "region": "TBD",
-                "start_date": "TBD",
-                "end_date": "TBD",
-                "prize_pool": "TBD",
-                "teams": "TBD",
-                "matches": "TBD",
+                "startDate": "TBD",
+                "endDate": "TBD",
+                "prize": "TBD",
             }
             for key, value in event.items():
                 event_infos = search_event_infos(key, value, event_infos)
+            all_events.append(event_infos)
 
             show_infos(type="Event", infos=event_infos)
 
-        return r_json["events"]
+        return all_events
     except Exception as e:
         print(f"Error :\n{e}")
 
