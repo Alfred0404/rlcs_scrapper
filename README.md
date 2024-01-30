@@ -2,7 +2,7 @@
 ## Description
 
 This little project is a web app that shows some informations about Rocket League esport matches or tournaments.
-Currently, the python script can browse matches or events from the API with different filters, which are not implemented in the web app yet.
+Currently, the app can browse matches or events from the API with different filters
 
 
 ## Libraries
