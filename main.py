@@ -1,5 +1,5 @@
 import requests
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 
 
 def send_request_json(url):
@@ -147,13 +147,20 @@ def get_matches(team="", region="", event="", after=""):
 
 def send_notification(match, delay=30):
     now = datetime.now()
-    # get difference between now and match date
+    notification_sent = False
 
-    time_diff = match["date"] - now
-    print(f"Time difference : {time_diff}")
+    match_date_str = match["date"]
+    match_date = datetime.strptime(match_date_str, "%Y-%m-%dT%H:%M:%SZ")
 
-    if time_diff <= delay:
+    time_diff = match_date - now
+    print(f"Match starting in : {str(time_diff)[:-7]} minutes")
+
+    if time_diff < timedelta(minutes=0):
+        print("Match is already over !")
+    elif time_diff <= timedelta(minutes=delay) and not notification_sent:
         print("Match is about to start !")
+    else:
+        print("Match is not about to start !")
 
 
 def main():
