@@ -1,11 +1,9 @@
 # RLCS SCRAPPER
 ## Description
 
-A little project to send notification before the next match.
-Later I'll add the option to choose a match from which you want to receive notification.
-You'll get notified in the morning if there is a match during the day.
+This little project is a web app that shows some informations about Rocket League esport matches or tournaments.
+Currently, the python script can browse matches or events from the API with different filters, which are not implemented in the web app yet.
 
-Atm, the script can grab all upcoming events, all upcoming matches filtered or not by team.
 
 ## Libraries
 - [requests](https://pypi.org/project/requests/)
@@ -13,7 +11,7 @@ Atm, the script can grab all upcoming events, all upcoming matches filtered or n
 
 ## API
 
-I'm using the [octane.gg](https://zsr.octane.gg/)'s API, it's an API that let you get loads of interesting infos about everithing that can happen in Rocket League esport.
+I'm using the [octane.gg](https://zsr.octane.gg/)'s API. It's an API that let you browse loads of interesting infos about everything that can happen in Rocket League esport (matches, events, teams, players, records, and a bunch of other stats).
 
 ## Contributing
 
