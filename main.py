@@ -1,5 +1,5 @@
 import requests
-from datetime import date
+from datetime import date, datetime
 
 
 def send_request_json(url):
@@ -145,9 +145,21 @@ def get_matches(team="", region="", event="", after=""):
         print(f"Error :\n{e}")
 
 
+def send_notification(match, delay=30):
+    now = datetime.now()
+    # get difference between now and match date
+
+    time_diff = match["date"] - now
+    print(f"Time difference : {time_diff}")
+
+    if time_diff <= delay:
+        print("Match is about to start !")
+
+
 def main():
     today = date.today()
     print(f"Today's date : {today}\n")
+
     team_input = input("Enter a team name : ")
     event_input = input("Enter an event name : ")
     region_input = input("Enter a region : ")

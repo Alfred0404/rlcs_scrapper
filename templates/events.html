@@ -9,6 +9,15 @@
 
 <body>
     <h1>Events</h1>
+    <form method="POST" action="/events">
+        <label for="region">Region :</label><br>
+        <input type="text" id="region" name="region"><br>
+        <label for="event_name">Event :</label><br>
+        <input type="text" id="event_name" name="event_name"><br>
+        <label for="after">After :</label><br>
+        <input type="date" id="after" name="after"><br>
+        <input type="submit" value="Submit">
+    </form>
     <ul class="event-list-container">
         {% for event in events %}
         {% if event%}

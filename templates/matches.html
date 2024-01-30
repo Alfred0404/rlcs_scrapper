@@ -9,6 +9,17 @@
 
 <body>
     <h1>Matches</h1>
+    <form method="POST" action="/matches">
+        <label for="region">Region :</label><br>
+        <input type="text" id="region" name="region"><br>
+        <label for="team">Team :</label><br>
+        <input type="text" id="team" name="team"><br>
+        <label for="event">Event :</label><br>
+        <input type="text" id="event" name="event"><br>
+        <label for="after">After :</label><br>
+        <input type="date" id="after" name="after"><br>
+        <input type="submit" value="Submit">
+    </form>
     <ul class="matches-list-container">
         {% for match in matches %}
         {% if match%}
