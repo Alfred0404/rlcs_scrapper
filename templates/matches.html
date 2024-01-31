@@ -9,23 +9,32 @@
 
 <body>
     <h1>Matches</h1>
+    <a href="/">Home</a>
     <form method="POST" action="/matches">
-        <label for="region">Region :</label><br>
-        <select name="region" id="">
-            <option value="EU">Europe</option>
-            <option value="NA">North America</option>
-            <option value="SAM">South America</option>
-            <option value="OCE">Oceania</option>
-            <option value="ME">Middle East</option>
-            <option value="ASIA">Asia</option>
-        </select><br>
-        <label for="team">Team :</label><br>
-        <input type="text" id="team" name="team"><br>
-        <label for="event">Event :</label><br>
-        <input type="text" id="event" name="event"><br>
-        <label for="after">After :</label><br>
-        <input type="date" id="after" name="after"><br>
-        <input type="submit" value="Submit">
+        <div class="input-group">
+            <label for="region">Region :</label><br>
+            <select name="region" id="">
+                <option value="EU">Europe</option>
+                <option value="NA">North America</option>
+                <option value="SAM">South America</option>
+                <option value="OCE">Oceania</option>
+                <option value="ME">Middle East</option>
+                <option value="ASIA">Asia</option>
+            </select><br>
+        </div class="input-group">
+        <div>
+            <label for="team">Team :</label><br>
+            <input type="text" id="team" name="team"><br>
+        </div class="input-group">
+        <div>
+            <label for="event">Event :</label><br>
+            <input type="text" id="event" name="event"><br>
+        </div>
+        <div class="input-group">
+            <label for="after">After :</label><br>
+            <input type="date" id="after" name="after"><br>
+        </div>
+        <input class="submit-btn" type="submit" value="Submit">
     </form>
     <ul class="matches-list-container">
         {% for match in matches %}

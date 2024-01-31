@@ -9,23 +9,30 @@
 
 <body>
     <h1>Events</h1>
+    <a href="/">Home</a>
     <form method="POST" action="/events">
-        <label for="region">Region :</label><br>
-        <select name="region" id="">
-            <option value="EU">Europe</option>
-            <option value="NA">North America</option>
-            <option value="SAM">South America</option>
-            <option value="OCE">Oceania</option>
-            <option value="ME">Middle East</option>
-            <option value="ASIA">Asia</option>
-        </select><br>
-        <label for="event_name">Event :</label><br>
-        <input type="text" id="event_name" name="event_name"><br>
-        <label for="after">After :</label><br>
-        <input type="date" id="after" name="after"><br>
-        <input type="submit" value="Submit">
+        <div class="input-group">
+            <label for="region">Region :</label><br>
+            <select name="region" id="">
+                <option value="EU">Europe</option>
+                <option value="NA">North America</option>
+                <option value="SAM">South America</option>
+                <option value="OCE">Oceania</option>
+                <option value="ME">Middle East</option>
+                <option value="ASIA">Asia</option>
+            </select><br>
+        </div class="input-group">
+        <div>
+            <label for="event_name">Event :</label><br>
+            <input type="text" id="event_name" name="event_name"><br>
+        </div class="input-group">
+        <div>
+            <label for="after">After :</label><br>
+            <input type="date" id="after" name="after"><br>
+        </div class="input-group">
+        <input class="submit-btn" type="submit" value="Submit">
     </form>
-    <ul class="event-list-container">
+    <ul class="events-list-container">
         {% for event in events %}
         {% if event%}
         <li class="event">
