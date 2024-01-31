@@ -3,6 +3,18 @@ from datetime import date, datetime, timedelta
 
 
 def send_request_json(url):
+    """
+    Sends a GET request to the specified URL and returns the response as JSON.
+
+    Args:
+        url (str): The URL to send the GET request to.
+
+    Returns:
+        dict: The JSON response from the server as a dictionary.
+
+    Raises:
+        Exception: If there is an error during the request or JSON conversion.
+    """
     try:
         response = requests.get(url, verify=False)
         r_json = response.json()
@@ -13,6 +25,17 @@ def send_request_json(url):
 
 
 def search_match_infos(key, value, match_infos):
+    """
+    Look for the specified key in the match_infos and update the match_infos
+
+    Args:
+        key (str): The key to look for in the match_infos.
+        value (any): The value to update in the match_infos.
+        match_infos (dict): The dictionary to update.
+
+    Returns:
+        dict: The updated match_infos.
+    """
     if key == "event":
         match_infos["event_name"] = value["name"]
         match_infos["event_region"] = value["region"]
@@ -39,6 +62,17 @@ def search_match_infos(key, value, match_infos):
 
 
 def search_event_infos(key, value, event_infos):
+    """
+    Look for the specified key in the event_infos and update the event_infos
+
+    Args:
+        key (str): The key to look for in the event_infos.
+        value (any): The value to update in the event_infos.
+        event_infos (dict): The dictionary to update.
+
+    Returns:
+        dict: The updated event_infos.
+    """
     if key == "name":
         event_infos["name"] = value
     elif key == "region":
@@ -54,12 +88,33 @@ def search_event_infos(key, value, event_infos):
 
 
 def show_infos(infos, type="Match"):
+    """
+    Print the infos of a match or an event
+
+    Args:
+        infos (dict): The infos to print.
+        type (str, optional): The type of infos ("Match" or "Event"). Defaults to "Match".
+    """
     print(f"\n{type} infos :")
     for key, value in infos.items():
         print(f"\t{key} : {value}")
 
 
 def get_events(region="", event_name="", after=""):
+    """
+    Fetches events from the Octane.gg API based on the provided filters.
+
+    Args:
+        region (str, optional): The region to filter events by. Defaults to "".
+        event_name (str, optional): The name to filter events by. Defaults to "".
+        after (str, optional): The date to filter events by. Only events after this date will be returned. Defaults to "".
+
+    Returns:
+        list: A list of dictionaries, each representing an event and its details.
+
+    Raises:
+        Exception: If there is an error during the request or JSON conversion.
+    """
     try:
         all_events = []
         url = "https://zsr.octane.gg/events?"
@@ -105,6 +160,21 @@ def get_team_id(team_name):
 
 
 def get_matches(team="", region="", event="", after=""):
+    """
+    Fetches matches from the Octane.gg API based on the provided filters.
+
+    Args:
+        region (str, optional): The region to filter matches by. Defaults to "".
+        team (str, optional): The team to filter matches by. Defaults to "".
+        event_name (str, optional): The name to filter matches by. Defaults to "".
+        after (str, optional): The date to filter matches by. Only matches after this date will be returned. Defaults to "".
+
+    Returns:
+        list: A list of dictionaries, each representing an match and its details.
+
+    Raises:
+        Exception: If there is an error during the request or JSON conversion.
+    """
     try:
         all_matches = []
         team_id = get_team_id(team)
@@ -146,6 +216,13 @@ def get_matches(team="", region="", event="", after=""):
 
 
 def send_notification(match, delay=30):
+    """
+    Send a notification when the match is about to start
+
+    Args:
+        match (dict): The match to notify.
+        delay (int, optional): The delay in minutes before the match starts. Defaults to 30.
+    """
     now = datetime.now()
     notification_sent = False
 
@@ -159,6 +236,7 @@ def send_notification(match, delay=30):
         print("Match is already over !")
     elif time_diff <= timedelta(minutes=delay) and not notification_sent:
         print("Match is about to start !")
+        notification_sent = True
     else:
         print("Match is not about to start !")
 
