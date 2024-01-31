@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request
 from main import get_matches, get_events, show_infos, send_notification
 import json
 
@@ -37,7 +37,7 @@ def notify():
         show_infos(type="Match", infos=match_info_json)
         send_notification(match_info_json)
 
-        return '', 204
+        return "", 204
 
 
 @app.route("/events", methods=["GET", "POST"])
