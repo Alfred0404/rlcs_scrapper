@@ -31,11 +31,11 @@ h1 {
     align-items: center;
     justify-content: center;
     margin-top: 20px;
-    /* margin-left: 200px; */
 }
 
 .match {
     margin: 10px;
+    margin-top: 30px;
     background: #1a1b26;
     color: white;
     padding: 30px;
@@ -54,15 +54,26 @@ h1 {
     padding-block: 3px;
 }
 
+.get-notified {
+    grid-column: 1 / -1;
+    background: rgb(100, 153, 255);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: background 0.15s ease 0s;
+}
+
 form {
     width: 20%;
     margin-left: auto;
     margin-right: auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    /* Two columns of equal width */
     grid-auto-flow: row;
-    /* Fill the grid by row */
     gap: 10px;
 }
 
@@ -77,12 +88,13 @@ select {
     color: rgb(247, 248, 248);
     height: 30px;
     transition: border 0.15s ease 0s;
+}
 
-    :focus {
-        outline: none;
-        box-shadow: none;
-        border-color: rgb(100, 153, 255);
-    }
+input:focus,
+select:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: rgb(100, 153, 255);
 }
 
 .submit-btn {
@@ -97,7 +109,8 @@ select {
     cursor: pointer;
     transition: background 0.15s ease 0s;
 
-    :hover {
-        background: rgb(60, 63, 68);
-    }
+}
+
+.submit-btn:hover {
+    background: rgb(60, 63, 68);
 }

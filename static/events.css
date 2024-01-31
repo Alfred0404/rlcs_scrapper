@@ -66,6 +66,10 @@ form {
     gap: 10px;
 }
 
+label {
+    margin-bottom: 10px;
+}
+
 input,
 select {
     padding: 6px 12px;

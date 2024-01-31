@@ -14,6 +14,7 @@
         <div class="input-group">
             <label for="region">Region :</label><br>
             <select name="region" id="">
+                <option value=""> --Select a region-- </option>
                 <option value="EU">Europe</option>
                 <option value="NA">North America</option>
                 <option value="SAM">South America</option>
@@ -47,6 +48,10 @@
                 {% endfor %}
             </ul>
         </li>
+        <form action="/notify" method="POST">
+            <input type="hidden" name="match_info" value="{{match}}">
+            <input class="get-notified" type="submit" name="get_notified" value="Get notified">
+        </form>
         {% endif %}
         {% endfor %}
     </ul>
