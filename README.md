@@ -16,10 +16,11 @@ As the app is still in developpment, the front-end is very unfinished, and a bit
 
 ## Usage
 
-Currently, you chan choose to run only the `main.py` file, or the entire flask app, by running `python -m flask run` in your terminal.
+Currently, you chan choose to run only the `main.py` file, or the entire flask app, by running `python -m flask run` in your terminal, then click the localhost link.
 Once on the web app, you can navigate to the matches page or the events page, to start gather informations about everything you want.
 
 On the matches page, you can filter matches by :
+
 - Region
 - Team
 - Event
@@ -29,6 +30,7 @@ For every match on this page, you can choose to be notified to it, just by click
 ![1706707727325](image/README/1706707727325.png)
 
 Same for the events page, you can filter events by :
+
 - Region
 - Event Name
 - Date
@@ -41,6 +43,9 @@ There is no notification button here because it's not necessary
 I'm using the [octane.gg](https://zsr.octane.gg/)'s API. It's an API that let you browse loads of interesting infos about everything that can happen in Rocket League esport (matches, events, teams, players, records, and a bunch of other stats).
 
 ## Contributing
+
+PR are welcomed, contribute as much as you want, I'll be happy to discuss about features or fixes that you could bring to the project.
+Don't hesitate as well to submit some issues if you encounter some, so we can fix it quickly.
 
 - ⭐ Star this repository
 - 🍴 Fork this repo
