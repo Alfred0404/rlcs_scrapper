@@ -7,11 +7,23 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
+    """
+    Handle the index page requests
+
+    Returns:
+        HTML: The HTML page with the index
+    """
     return render_template("index.html")
 
 
 @app.route("/matches", methods=["GET", "POST"])
 def matches():
+    """
+    Handle the matches page requests
+
+    Returns:
+        HTML: The HTML page with the matches
+    """
     if request.method == "POST":
         team = request.form.get("team")
         region = request.form.get("region")
@@ -29,6 +41,12 @@ def matches():
 
 @app.route("/notify", methods=["POST"])
 def notify():
+    """
+    Handle the notification requests
+
+    Returns:
+        str: Empty string so it doesn't reload the page
+    """
     if request.method == "POST":
         match_info = request.form.get("match_info").replace("'", '"')
         match_info_json = json.loads(match_info)
@@ -42,6 +60,12 @@ def notify():
 
 @app.route("/events", methods=["GET", "POST"])
 def events():
+    """
+    Handle the events page requests
+
+    Returns:
+        HTML: The HTML page with the events
+    """
     if request.method == "POST":
         region = request.form.get("region")
         event_name = request.form.get("event_name")
