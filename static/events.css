@@ -2,7 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 li {
@@ -22,6 +22,16 @@ a {
 h1 {
     text-align: center;
     padding: 20px 0;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    margin: 0px 50px 50px 50px;
+    background-color: #1a1b26;
+    border-radius: 5px;
 }
 
 .events-list-container {
@@ -60,14 +70,8 @@ form {
     margin-right: auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    /* Two columns of equal width */
     grid-auto-flow: row;
-    /* Fill the grid by row */
     gap: 10px;
-}
-
-label {
-    margin-bottom: 10px;
 }
 
 input,
@@ -75,18 +79,19 @@ select {
     padding: 6px 12px;
     width: 100%;
     background: rgb(31, 32, 35);
-    border: 1px solid rgb(60, 63, 68);
+    border: none;
     border-radius: 5px;
     font-size: 13px;
     color: rgb(247, 248, 248);
     height: 30px;
     transition: border 0.15s ease 0s;
+}
 
-    :focus {
-        outline: none;
-        box-shadow: none;
-        border-color: rgb(100, 153, 255);
-    }
+input:focus,
+select:focus {
+    outline: none;
+    box-shadow: none;
+    border: 1px solid rgb(100, 153, 255);
 }
 
 .submit-btn {
@@ -101,7 +106,8 @@ select {
     cursor: pointer;
     transition: background 0.15s ease 0s;
 
-    :hover {
-        background: rgb(60, 63, 68);
-    }
+}
+
+.submit-btn:hover {
+    background: rgb(60, 63, 68);
 }

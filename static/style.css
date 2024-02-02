@@ -19,3 +19,27 @@ h1 {
     text-align: center;
     padding: 20px 0;
 }
+
+.nav-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    margin: 0px 50px 50px 50px;
+    background-color: #1a1b26;
+    border-radius: 5px;
+}
+
+.description h1 {
+    margin-top: 160px;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 80px;
+}
+
+.description p {
+    margin: 320px;
+    text-align: left;
+    padding: 20px 0;
+    font-size: 25px;
+}
