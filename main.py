@@ -150,7 +150,7 @@ def get_events(region="", event_name="", after=""):
 
 def get_team_id(team_name):
     try:
-        if team_name == "":
+        if team_name == "" or team_name == None:
             return ""
         r_json = send_request_json(f"https://zsr.octane.gg/teams?name={team_name}")
         print(f"Team {team_name} id : {r_json['teams'][0]['_id']}")
