@@ -79,9 +79,9 @@ def search_event_infos(key, value, event_infos):
     elif key == "region":
         event_infos["region"] = value
     elif key == "startDate":
-        event_infos["startDate"] = value
+        event_infos["startDate"] = value[0:10]
     elif key == "endDate":
-        event_infos["endDate"] = value
+        event_infos["endDate"] = value[0:10]
     elif key == "prize":
         event_infos["prize"] = f'{value["amount"]} {value["currency"]}'
 
@@ -160,6 +160,18 @@ def get_team_id(team_name):
         print(f"Error :\n{e}")
 
 
+def get_event_id(event_name):
+    try:
+        if event_name == "" or event_name == None:
+            return ""
+        r_json = send_request_json(f"https://zsr.octane.gg/events?name={event_name}")
+        print(f"Event {event_name} id : {r_json['events'][0]['_id']}")
+
+        return r_json["events"][0]["_id"]
+    except Exception as e:
+        print(f"Error :\n{e}")
+
+
 def get_matches(team="", region="", event="", after=""):
     """
     Fetches matches from the Octane.gg API based on the provided filters.
@@ -179,14 +191,15 @@ def get_matches(team="", region="", event="", after=""):
     try:
         all_matches = []
         team_id = get_team_id(team)
+        event_id = get_event_id(event)
 
         url = "https://zsr.octane.gg/matches?"
         if team_id != "":
             url += f"team={team_id}&"
         if region != "":
             url += f"region={region}&"
-        if event != "":
-            url += f"event={event}&"
+        if event_id != "":
+            url += f"event={event_id}&"
         if after != "":
             url += f"after={after}&"
 
@@ -252,9 +265,11 @@ def main():
     region_input = input("Enter a region : ")
     after_input = input("Enter a date (YYYY-MM-DD) : ")
 
-    get_matches(
-        region=region_input, team=team_input, event=event_input, after=after_input
-    )
+    # get_matches(
+    #     region=region_input, team=team_input, event=event_input, after=after_input
+    # )
+
+    # get_events(region=region_input, event_name=event_input, after=after_input)
 
 
 if __name__ == "__main__":

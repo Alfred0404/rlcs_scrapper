@@ -42,13 +42,19 @@
         {% for event in events %}
         {% if event%}
         <li class="event">
-            <h3>Event Infos :</h3>
-            <ul class="event-infos-container">
+            <div class="event-infos-container">
                 {% for key, value in event.items() %}
-                <li class="event-info">{{key}} : {{value}}</li>
+                <p class="event-info" id="{{key}}">{{value}}</p>
                 {% endfor %}
-            </ul>
+            </div>
         </li>
+        <form action="/matches" method="POST">
+            <input type="hidden" name="event" value="{{event.name}}">
+            <input type="hidden" name="region" value="">
+            <input type="hidden" name="team" value="">
+            <input type="hidden" name="after" value="">
+            <input class="get-event-matches" type="submit" name="get_event_matches" value="See matches">
+        </form>
         {% endif %}
         {% endfor %}
     </ul>
