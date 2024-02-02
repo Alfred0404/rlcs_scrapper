@@ -50,7 +50,8 @@ h1 {
     color: white;
     padding: 30px;
     border-radius: 5px;
-    width: 20%;
+    width: 30%;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -58,10 +59,104 @@ h1 {
 
 .match-infos-container {
     padding: 10px;
+    height: 300px;
+    position: relative;
 }
 
 .match-info {
-    padding-block: 3px;
+    position: absolute;
+}
+
+#blue_team,
+#blue_score {
+    color: rgb(37, 117, 255);
+}
+
+#orange_team,
+#orange_score {
+    color: rgb(255, 170, 0);
+}
+
+#orange_score,
+#blue_score {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+#blue_team {
+    font-size: 20px;
+    font-weight: 500;
+    top: 120px;
+    left: 60px;
+}
+
+#blue_score {
+    font-size: 20px;
+    font-weight: 500;
+    top: 120px;
+    left: 0;
+}
+
+#orange_score {
+    font-size: 20px;
+    font-weight: 500;
+    top: 160px;
+    left: 0;
+}
+
+#orange_team {
+    font-size: 20px;
+    font-weight: 500;
+    top: 160px;
+    left: 60px;
+}
+
+#event_name {
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+    top: 0;
+    left: 0;
+}
+
+#stage_name {
+    font-size: 15px;
+    font-weight: 500;
+    top: 30px;
+    left: 0;
+    color: rgb(178, 178, 178);
+}
+
+#event_region {
+    font-size: 15px;
+    font-weight: 500;
+    top: 55px;
+    left: 0;
+    color: rgb(178, 178, 178);
+}
+
+#date {
+    font-size: 15px;
+    font-weight: 500;
+    color: rgb(178, 178, 178);
+    bottom: 0;
+    left: 0;
+}
+
+#hour {
+    font-size: 15px;
+    font-weight: 500;
+    color: rgb(178, 178, 178);
+    bottom: 0;
+    right: 0;
+}
+
+#format {
+    font-size: 15px;
+    font-weight: 500;
+    top: 250px;
+    left: 0;
+    color: rgb(178, 178, 178);
 }
 
 .get-notified {
@@ -78,7 +173,7 @@ h1 {
 }
 
 form {
-    width: 20%;
+    width: 30%;
     margin-left: auto;
     margin-right: auto;
     display: grid;

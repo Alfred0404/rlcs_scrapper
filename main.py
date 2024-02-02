@@ -52,7 +52,8 @@ def search_match_infos(key, value, match_infos):
         except KeyError:
             pass
     elif key == "date":
-        match_infos["date"] = value
+        match_infos["date"] = value[0:10]
+        match_infos["hour"] = value[11:-4]
     elif key == "format":
         match_infos["format"] = f"{value['type']} of {value['length']}"
     elif key == "stage":
@@ -199,6 +200,7 @@ def get_matches(team="", region="", event="", after=""):
                 "blue_team": "TBD",
                 "orange_team": "TBD",
                 "date": "TBD",
+                "hour": "TBD",
                 "format": "TBD",
                 "blue_score": "0",
                 "orange_score": "0",
