@@ -37,7 +37,7 @@ Same for the events page, you can filter events by :
 - Event Name
 - Date
 
-There is no notification button here because it's not necessary
+For every event on the page, you can click the "See matches" button. It will redirect you on the "matches" page, where you will find all the matches of this event.
 ![matches page](image/README/rl_esport_events_page.png "events page")
 
 ## API
