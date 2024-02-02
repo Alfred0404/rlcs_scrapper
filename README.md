@@ -19,6 +19,8 @@ As the app is still in developpment, the front-end is very unfinished, and a bit
 Currently, you chan choose to run only the `main.py` file, or the entire flask app, by running `python -m flask run` in your terminal, then click the localhost link.
 Once on the web app, you can navigate to the matches page or the events page, to start gather informations about everything you want.
 
+![matches page](image/README/rl_esport_home_page.png "home page")
+
 On the matches page, you can filter matches by :
 
 - Region
@@ -27,7 +29,7 @@ On the matches page, you can filter matches by :
 - Date
 
 For every match on this page, you can choose to be notified to it, just by clicking the "Get notified" button.
-![1706707727325](image/README/1706707727325.png)
+![matches page](image/README/rl_esport_matches_page.png "matches page")
 
 Same for the events page, you can filter events by :
 
@@ -36,7 +38,7 @@ Same for the events page, you can filter events by :
 - Date
 
 There is no notification button here because it's not necessary
-![1706707864425](image/README/1706707864425.png)
+![matches page](image/README/rl_esport_events_page.png "events page")
 
 ## API
 
