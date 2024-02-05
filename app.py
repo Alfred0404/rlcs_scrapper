@@ -1,8 +1,15 @@
 from flask import Flask, render_template, request
+from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from main import get_matches, get_events, show_infos, send_notification
 import json
 
+
 app = Flask(__name__)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+db = SQLAlchemy()
+db.init_app(app)
 
 
 @app.route("/")
@@ -14,6 +21,25 @@ def index():
         HTML: The HTML page with the index
     """
     return render_template("index.html")
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    """
+    Handle the login page requests
+
+    Returns:
+        HTML: The HTML page with the login
+    """
+    if request.method == "POST":
+        username = request.form.get("username")
+        password = request.form.get("password")
+
+        print(f"username : {username}\npassword : {password}")
+
+        return render_template("login.html", username=username, password=password)
+    else:
+        return render_template("login.html")
 
 
 @app.route("/matches", methods=["GET", "POST"])
