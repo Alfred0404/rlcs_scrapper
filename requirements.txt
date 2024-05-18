@@ -1,6 +1,7 @@
 # Add flask
 flask
 flask_sqlalchemy
+flask_login
 # json
 requests
 # datetime
