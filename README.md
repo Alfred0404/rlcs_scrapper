@@ -5,7 +5,7 @@
 This little project is a web app that shows some informations about Rocket League esport matches or tournaments.
 Users can browse matches or events from the API with different filters, and choose the matches for which they want to be notified.
 
-As the app is still in developpment, the front-end is very unfinished, and a bit ugly.
+As
 
 ## Installation
 
